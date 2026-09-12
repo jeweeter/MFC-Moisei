@@ -1,0 +1,111 @@
+/* ============================================================================
+   Дизайн-система «Моисей»
+   Палитра МФЦ: красный, тёмно-коричневый, бежевый, чёрный, белый.
+   Манера — как у Сбера: сдержанно, много воздуха, крупные радиусы,
+   один акцентный цвет, аккуратная типографика; «футуристичность» даётся
+   не яркостью, а точностью — тонкими границами, мягкими градиентами,
+   моноширинными подписями и выверенной анимацией.
+   ========================================================================== */
+
+:root {
+  /* --- фирменные цвета --- */
+  --mfc-red-900: #7A0A1E;
+  --mfc-red-700: #A00C24;
+  --mfc-red-600: #C8102E;   /* основной красный МФЦ */
+  --mfc-red-500: #E01B39;
+  --mfc-red-050: #FCEBEE;
+
+  --brown-950: #17100D;
+  --brown-900: #241713;
+  --brown-800: #2E1E18;
+  --brown-700: #3E2A22;
+  --brown-600: #5A4036;
+  --brown-400: #8C6E60;
+
+  --beige-050: #FBF8F3;
+  --beige-100: #F5EFE6;
+  --beige-200: #EBE1D3;
+  --beige-300: #DBCBB4;
+
+  --ink-900: #0E0B0A;
+  --white: #ffffff;
+
+  --amber: #E8A33D;
+  --green: #2E7D5B;
+
+  /* --- семантические токены (светлая тема) --- */
+  --bg: var(--beige-050);
+  --bg-elev: var(--white);
+  --bg-sunken: var(--beige-100);
+  --bg-rail: var(--brown-900);
+  --surface-hover: var(--beige-100);
+  --surface-active: var(--beige-200);
+
+  --text: var(--brown-900);
+  --text-strong: var(--ink-900);
+  --text-muted: #6B564C;
+  --text-faint: #9A857A;
+  --text-on-dark: #F3E9DD;
+  --text-on-accent: var(--white);
+
+  --border: #E3D8C8;
+  --border-strong: #CDBCA6;
+  --border-rail: rgba(255, 255, 255, 0.10);
+
+  --accent: var(--mfc-red-600);
+  --accent-hover: var(--mfc-red-700);
+  --accent-soft: var(--mfc-red-050);
+  --accent-ring: rgba(200, 16, 46, 0.22);
+
+  --shadow-sm: 0 1px 2px rgba(36, 23, 19, 0.06);
+  --shadow-md: 0 4px 16px -4px rgba(36, 23, 19, 0.12), 0 1px 3px rgba(36, 23, 19, 0.06);
+  --shadow-lg: 0 24px 60px -18px rgba(36, 23, 19, 0.28), 0 2px 8px rgba(36, 23, 19, 0.08);
+  --shadow-accent: 0 10px 30px -8px rgba(200, 16, 46, 0.45);
+
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 999px;
+
+  --rail-w: 232px;
+  --chat-w: 456px;
+  --header-h: 68px;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 180ms;
+}
+
+[data-theme='dark'] {
+  --bg: #14100E;
+  --bg-elev: #1D1714;
+  --bg-sunken: #100C0A;
+  --bg-rail: #0D0908;
+  --surface-hover: #261E1A;
+  --surface-active: #302520;
+
+  --text: #EFE4D8;
+  --text-strong: #FFF8F0;
+  --text-muted: #B6A296;
+  --text-faint: #85736A;
+  --text-on-dark: #F3E9DD;
+
+  --border: #302620;
+  --border-strong: #453730;
+  --border-rail: rgba(255, 255, 255, 0.07);
+
+  --accent: var(--mfc-red-500);
+  --accent-hover: #F02B49;
+  --accent-soft: rgba(224, 27, 57, 0.14);
+  --accent-ring: rgba(224, 27, 57, 0.3);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 18px -4px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 28px 70px -20px rgba(0, 0, 0, 0.75);
+  --shadow-accent: 0 10px 30px -8px rgba(224, 27, 57, 0.4);
+}
