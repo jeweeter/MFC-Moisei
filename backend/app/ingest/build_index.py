@@ -33,7 +33,7 @@ from app.ingest.schema import (  # noqa: E402
 )
 from app.search.normalize import normalize_text  # noqa: E402
 
-INDEXER_VERSION = "6"
+INDEXER_VERSION = "7"
 
 # Хвостовые уточнения в скобках: «(Тула)», «(Алексин)», «(Комплексная)».
 RE_TRAILING_PAREN = re.compile(r"\s*\(([^()]{1,60})\)\s*$")
@@ -83,7 +83,15 @@ def short_title(title: str, limit: int = 120) -> str:
     форму «голова … различающий хвост».
     """
     t = RE_WS.sub(" ", (title or "").strip()).strip("«»\" ")
-    t = RE_BOILERPLATE.sub("", t).strip()
+    stripped = RE_BOILERPLATE.sub("", t).strip()
+    # Зачин снимаем только если остаток остаётся грамматичным. В названии
+    # «Предоставление государственной услуги ПО предоставлению сведений…»
+    # остаток начинается с предлога и падежа — такое название лучше не трогать.
+    if stripped and not re.match(r"^(?:по|для|об?|при|в|на)\s", stripped, re.I):
+        t = stripped
+    t = t.strip()
+    if t and t[0].islower():
+        t = t[0].upper() + t[1:]
     if len(t) <= limit:
         return t
 
