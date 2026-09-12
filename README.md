@@ -1,0 +1,2 @@
+# MFC-Moisei
+for hakaton
