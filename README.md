@@ -64,7 +64,7 @@
 
 ### Что нужно
 
-* **Python 3.11+**
+* **Python 3.10-3.13** (не 3.14 — под него ещё нет бинарных пакетов для зафиксированных версий numpy/scipy/scikit-learn/rapidfuzz/lxml; `run.sh` находит подходящую версию сам, если она есть в системе)
 * **Node.js 18+**
 * Ключ Anthropic API — **необязателен**. Без него система работает в автономном
   режиме: поиск и мастер функционируют полностью, ассистент отвечает выдержками
@@ -84,8 +84,8 @@ cd MFC-Moisei
 ### Вариант 2. По шагам
 
 ```bash
-# 1. Бэкенд
-python3 -m venv .venv
+# 1. Бэкенд (python3.12 или другая версия 3.10-3.13, см. выше — НЕ 3.14)
+python3.12 -m venv .venv
 source .venv/bin/activate                 # Windows: .venv\Scripts\activate
 pip install -r backend/requirements.txt
 
